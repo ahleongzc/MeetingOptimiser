@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct MeetingOptimiserApp: App {
+    
+    @StateObject var empVM = EmployeesViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(empVM)
         }
     }
 }
