@@ -51,6 +51,9 @@
 		927EF4A72A272712002D3EA7 /* MeetingOptimiser */ = {
 			isa = PBXGroup;
 			children = (
+				927EF4B82A272836002D3EA7 /* View */,
+				927EF4B72A27282F002D3EA7 /* ViewModel */,
+				927EF4B62A27282A002D3EA7 /* Model */,
 				927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */,
 				927EF4AA2A272712002D3EA7 /* ContentView.swift */,
 				927EF4AC2A272713002D3EA7 /* Assets.xcassets */,
@@ -65,6 +68,27 @@
 				927EF4AF2A272713002D3EA7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		927EF4B62A27282A002D3EA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		927EF4B72A27282F002D3EA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		927EF4B82A272836002D3EA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
