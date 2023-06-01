@@ -15,12 +15,9 @@ struct AllEmployeesView: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(empVM.employees) { employee in
-                        VStack {
-                            Text(employee.name ?? "Error")
-                            Text(employee.id ?? "Error")
-                        }
-                        
+                    ForEach(empVM.employees) { unformattedEmp in
+                        let employee = EmployeeModel(employee: unformattedEmp)
+                        SingleEmployeeView(employee: employee)
                     }.onDelete(perform: empVM.deleteEmployee)
                 }
                 

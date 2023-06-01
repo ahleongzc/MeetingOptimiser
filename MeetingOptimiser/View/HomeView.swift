@@ -23,7 +23,7 @@ struct HomeView: View {
             
             MeetingHistoryView()
                 .tabItem {
-                    Label("History", systemImage: "pencuk")
+                    Label("History", systemImage: "pencil")
                 }
         }
     }

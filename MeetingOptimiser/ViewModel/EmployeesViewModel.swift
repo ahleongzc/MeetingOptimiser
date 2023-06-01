@@ -13,18 +13,59 @@ class EmployeesViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     
     @Published var employees: [Employee] = []
+    @Published var exampleEmployeesInModel = [EmployeeModel.example, EmployeeModel.example2]
+    @Published var employeeSelectionList: [SelectionEmployeeModel] = []
+    @Published var selectedEmployees: [Employee] = []
     @Published var errorMessage: String?
 
     init() {
         getEmployees()
     }
     
+    func resetSelectedEmployees() {
+        
+    }
+    
+    func getSelectedEmployees() {
+        selectedEmployees = []
+        for selectionEmployeeModel in employeeSelectionList {
+            if selectionEmployeeModel.isSelected {
+                let model = selectionEmployeeModel.employee
+                
+                let newEmployee = Employee(context: manager.context)
+                newEmployee.id = model.id
+                newEmployee.name = model.name
+                newEmployee.email = model.email
+                newEmployee.position = model.position.rawValue
+                
+                selectedEmployees.append(newEmployee)
+            }
+        }
+    }
+    
+    func reinitialiseSelectedEmployees() {
+        employeeSelectionList = []
+        for employee in employees {
+            let empModel = EmployeeModel(employee: employee)
+            let selEmpModel = SelectionEmployeeModel(employee: empModel)
+            employeeSelectionList.append(selEmpModel)
+        }
+    }
+    
     func getEmployees() {
         let request = NSFetchRequest<Employee>(entityName: "Employee")
         do {
             employees = try manager.context.fetch(request)
+            reinitialiseSelectedEmployees()
         } catch let error {
             print("Error fetching. \(error.localizedDescription)")
+        }
+    }
+    
+    func choseEmployee(employee: SelectionEmployeeModel) {
+        if let index = employeeSelectionList.firstIndex(where: { $0.id == employee.id }) {
+            employeeSelectionList[index] = employee.updateSelection()
+            print("")
         }
     }
     

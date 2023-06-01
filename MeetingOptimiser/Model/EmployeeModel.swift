@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmployeeModel {
+struct EmployeeModel: Identifiable, Hashable {
     
     let id: String
     let email: String
@@ -21,6 +21,15 @@ struct EmployeeModel {
         self.position = position
     }
     
+    init(employee: Employee) {
+        self.id = employee.id ?? "Id"
+        self.email = employee.email ?? "Email"
+        self.name = employee.name ?? "Name"
+        self.position = PositionEnum(rawValue: employee.position ?? "Employee") ?? .E
+    }
+    
+    static let example = EmployeeModel(id: "12345", email: "email", name: "name", position: .SE)
+    static let example2 = EmployeeModel(id: "11111", email: "email2", name: "name2", position: .CEO)
 }
 
 enum PositionEnum: String, CaseIterable, Identifiable, Codable {
