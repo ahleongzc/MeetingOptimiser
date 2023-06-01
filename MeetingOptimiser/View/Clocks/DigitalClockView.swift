@@ -23,7 +23,7 @@ struct DigitalClockView: View {
     var body: some View {
         ZStack {
             HStack {
-                Text("\(hour):\(minute, specifier: "%.2d"):\(second, specifier: "%.2d")")
+                Text("\(currentDate, format: .dateTime.year().month().day())  \(hour):\(minute, specifier: "%.2d"):\(second, specifier: "%.2d")")
             }
             .font(.title2)
             .bold()

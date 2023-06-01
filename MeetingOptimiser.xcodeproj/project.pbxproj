@@ -20,6 +20,8 @@
 		927EF4CA2A272D3F002D3EA7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4C92A272D3F002D3EA7 /* HomeView.swift */; };
 		927EF4CC2A272D4E002D3EA7 /* AllEmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4CB2A272D4E002D3EA7 /* AllEmployeesView.swift */; };
 		927EF4CE2A272D78002D3EA7 /* SetUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */; };
+		928185DD2A28988D006E962E /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DC2A28988D006E962E /* MeetingView.swift */; };
+		928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DE2A289976006E962E /* SpeechRecognizer.swift */; };
 		92DBD34F2A273BBA0046D68E /* DuplicateEntryMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */; };
 		92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */; };
 		92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3522A273FD70046D68E /* MeetingViewModel.swift */; };
@@ -51,6 +53,8 @@
 		927EF4C92A272D3F002D3EA7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		927EF4CB2A272D4E002D3EA7 /* AllEmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmployeesView.swift; sourceTree = "<group>"; };
 		927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMeetingView.swift; sourceTree = "<group>"; };
+		928185DC2A28988D006E962E /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
+		928185DE2A289976006E962E /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateEntryMessageView.swift; sourceTree = "<group>"; };
 		92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHistoryView.swift; sourceTree = "<group>"; };
 		92DBD3522A273FD70046D68E /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				927EF4C32A272AD7002D3EA7 /* EmployeeModel.swift */,
 				92DBD3542A2743740046D68E /* MeetingModel.swift */,
 				92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */,
+				928185DE2A289976006E962E /* SpeechRecognizer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */,
 				92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */,
 				92DBD3562A2745800046D68E /* SingleEmployeeView.swift */,
+				928185DC2A28988D006E962E /* MeetingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				92DBD3592A274AA00046D68E /* AllMeetingsViewModel.swift in Sources */,
 				927EF4BE2A2728F6002D3EA7 /* EmployeesContainer.xcdatamodeld in Sources */,
 				92DBD35E2A274B920046D68E /* OpenAIViewModel.swift in Sources */,
+				928185DD2A28988D006E962E /* MeetingView.swift in Sources */,
 				927EF4C22A272A38002D3EA7 /* AddEmployeeView.swift in Sources */,
 				927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */,
 				927EF4CC2A272D4E002D3EA7 /* AllEmployeesView.swift in Sources */,
@@ -281,6 +288,7 @@
 				927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */,
 				92DBD34F2A273BBA0046D68E /* DuplicateEntryMessageView.swift in Sources */,
 				92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */,
+				928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */,
 				92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */,
 				92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */,
 			);

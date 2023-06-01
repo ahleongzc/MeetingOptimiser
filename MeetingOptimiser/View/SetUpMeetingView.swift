@@ -15,31 +15,62 @@ struct SetUpMeetingView: View {
     
     var body: some View {
         NavigationView {
-            VStack() {
+            VStack {
                 HStack {
                     DigitalClockView()
                         .padding()
                     Spacer()
                 }
                 
-                TextField("Enter topic here", text: $meetingVm.topic)
-                    .padding()
-        
-                
-                Button("Add attendees") {
-                    addAttendees.toggle()
+                Form {
+                    Section {
+                        TextField("Enter topic here", text: $meetingVm.topic)
+                            .padding()
+                    } header: {
+                        Text("Meeting Topic")
+                    }
+                    
+                    
+                    Section {
+                        ForEach(empVM.selectedEmployees) { selectedEmp in
+                            Text(selectedEmp.name ?? "")
+                        }
+                    } header: {
+                        Text("Attendees")
+                    }
                 }
-                Spacer()
                 
-                ForEach(empVM.selectedEmployees) { selectedEmp in
-                    Text(selectedEmp.id ?? "wow")
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        addAttendees.toggle()
+                    } label: {
+                        Text("Add attendees")
+                    }
+                    .foregroundColor(.blue)
+                    .padding()
+                    
+                    
+                    
+                    Spacer()
+                    
+                    
+                    NavigationLink {
+                        MeetingView(meeting: meetingVm.meeting)
+                    } label: {
+                        Text("Start Meeting")
+                    }
+                    .padding()
+                    
+                    Spacer()
                 }
             }
-            .navigationTitle("Meeting Optimiser")
             .sheet(isPresented: $addAttendees) {
                 SelectEmployeesView()
             }
-            }
+            .navigationTitle("Meeting Optimiser")
+        }
     }
 }
 

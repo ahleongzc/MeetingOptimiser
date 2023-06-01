@@ -19,13 +19,11 @@ class MeetingViewModel: ObservableObject {
 //    let endDate: Date?
 //    let duration: Int16
     
+    @Published var meeting: MeetingModel = MeetingModel.example
+    
     init() {
         
     }
-    
-    
-    
-    
     
     
 }
