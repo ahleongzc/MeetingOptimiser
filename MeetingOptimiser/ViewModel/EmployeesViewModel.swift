@@ -13,7 +13,6 @@ class EmployeesViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     
     @Published var employees: [Employee] = []
-    @Published var exampleEmployeesInModel = [EmployeeModel.example, EmployeeModel.example2]
     @Published var employeeSelectionList: [SelectionEmployeeModel] = []
     @Published var selectedEmployees: [Employee] = []
     @Published var errorMessage: String?
