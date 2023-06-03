@@ -39,8 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		925420FD2A2B3C0700801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		925420FE2A2B3CD100801571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		925420FF2A2B46A200801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		927EF4A52A272712002D3EA7 /* MeetingOptimiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingOptimiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingOptimiserApp.swift; sourceTree = "<group>"; };
 		927EF4AA2A272712002D3EA7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				925420FE2A2B3CD100801571 /* Info.plist */,
+				925420FF2A2B46A200801571 /* Config.xcconfig */,
 				927EF4B92A2728C2002D3EA7 /* CoreDataManager */,
 				927EF4B82A272836002D3EA7 /* View */,
 				927EF4B72A27282F002D3EA7 /* ViewModel */,
@@ -112,7 +113,6 @@
 				927EF4AA2A272712002D3EA7 /* ContentView.swift */,
 				927EF4AC2A272713002D3EA7 /* Assets.xcassets */,
 				927EF4AE2A272713002D3EA7 /* Preview Content */,
-				925420FD2A2B3C0700801571 /* Config.xcconfig */,
 			);
 			path = MeetingOptimiser;
 			sourceTree = "<group>";
@@ -303,7 +303,6 @@
 /* Begin XCBuildConfiguration section */
 		927EF4B12A272713002D3EA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 925420FD2A2B3C0700801571 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -364,7 +363,6 @@
 		};
 		927EF4B22A272713002D3EA7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 925420FD2A2B3C0700801571 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
