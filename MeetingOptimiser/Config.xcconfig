@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  MeetingOptimiser
+//
+//  Created by Leong Zhe Cheng on 3/6/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = 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
