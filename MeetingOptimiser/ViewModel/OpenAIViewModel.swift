@@ -25,7 +25,7 @@ final class OpenAIViewModel: ObservableObject {
         client?.sendCompletion(with: text, maxTokens: MAXTOKENS) { result in
             switch result {
             case .success(let model):
-                let output = model.choices?.first?.text ?? ""
+                let output = model.choices?.first?.text ?? "Slow"
                 completionHandler(output)
             case .failure(let error):
                 print("\(error.localizedDescription)")
