@@ -27,10 +27,9 @@ class MeetingViewModel: ObservableObject {
         
     }
     
-    func createMeeting(attendees: [Employee], startDate: Date) {
+    func createMeeting(attendees: [Employee]) {
         withAnimation {
-            meeting = .example
-//            meeting = MeetingModel(attendees: attendees, topic: topic, summaryLength: summaryLength, startDate: Date())
+            meeting = MeetingModel(attendees: attendees, topic: topic, summaryLength: summaryLength)
         }        
     }
     

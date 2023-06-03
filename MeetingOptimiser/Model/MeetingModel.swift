@@ -15,11 +15,12 @@ struct MeetingModel: Identifiable{
     let summary: String
     let summaryLength: summaryLengthEnum
     let transcript: String
-    let startDate: Date
+    let startDate: Date?
     let endDate: Date?
     let duration: Int16
     
     static let example = MeetingModel(attendees: [], topic: "Topic", summaryLength: .threeHundred, startDate: Date())
+    
     
     init(attendees: [Employee], topic: String, summaryLength: summaryLengthEnum, startDate: Date) {
         self.id = UUID().uuidString
@@ -29,6 +30,18 @@ struct MeetingModel: Identifiable{
         self.summaryLength = summaryLength
         self.transcript = ""
         self.startDate = startDate
+        self.endDate = nil
+        self.duration = 0
+    }
+    
+    init(attendees: [Employee], topic: String, summaryLength: summaryLengthEnum) {
+        self.id = UUID().uuidString
+        self.attendees = attendees
+        self.topic = topic
+        self.summary = ""
+        self.summaryLength = summaryLength
+        self.transcript = ""
+        self.startDate = nil
         self.endDate = nil
         self.duration = 0
     }

@@ -13,25 +13,28 @@ struct AllEmployeesView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(empVM.employees) { unformattedEmp in
-                        let employee = EmployeeModel(employee: unformattedEmp)
-                        SingleEmployeeView(employee: employee)
-                    }.onDelete(perform: empVM.deleteEmployee)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(empVM.employees) { unformattedEmp in
+                            let employee = EmployeeModel(employee: unformattedEmp)
+                            SingleEmployeeView(employee: employee)
+                        }.onDelete(perform: empVM.deleteEmployee)
+                    }
+                    
+                    NavigationLink {
+                        AddEmployeeView()
+                    } label: {
+                        Text("Add employee")
+                            .padding()
+                    }
+                    
                 }
-                
-                NavigationLink {
-                    AddEmployeeView()
-                } label: {
-                    Text("Add")
+                .navigationTitle("All Employees")
+                .alert(isPresented: $empVM.duplicateEntry) {
+                    Alert(title: Text("Duplicate entry"), message: Text(empVM.errorMessage))
                 }
-                
-                if let message = empVM.errorMessage {
-                    DuplicateEntryMessageView(message: message)
-                }
-                
-            }.navigationTitle("Employees")
+            }
         }
     }
 }

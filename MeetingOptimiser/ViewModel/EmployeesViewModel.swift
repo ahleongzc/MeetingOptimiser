@@ -15,15 +15,17 @@ class EmployeesViewModel: ObservableObject {
     @Published var employees: [Employee] = []
     @Published var employeeSelectionList: [SelectionEmployeeModel] = []
     @Published var selectedEmployees: [Employee] = []
-    @Published var errorMessage: String?
+    @Published var duplicateEntry: Bool = false
+    @Published var errorMessage: String = ""
     @Published var addAttendees: Bool = false
 
     init() {
         getEmployees()
     }
     
-    func resetSelectedEmployees() {
-        
+    func reset() {
+        selectedEmployees = []
+        reinitialiseSelectedEmployees()
     }
     
     func getSelectedEmployees() {
@@ -77,12 +79,8 @@ class EmployeesViewModel: ObservableObject {
         newEmployee.position = employee.position.rawValue
         
         if employees.contains(where: { $0.id == employee.id }) {
-            errorMessage = "Duplicate ID for \(employee.id)"
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.errorMessage = nil
-            }
-            
+            errorMessage = "Duplicate ID: \(employee.id)"
+            duplicateEntry.toggle()
             return
         }
         
@@ -99,7 +97,6 @@ class EmployeesViewModel: ObservableObject {
     func saveData() {
         manager.save()
         getEmployees()
-        print("saved")
     }
     
 }

@@ -23,7 +23,6 @@
 		928185DD2A28988D006E962E /* MeetingConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DC2A28988D006E962E /* MeetingConfirmationView.swift */; };
 		928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DE2A289976006E962E /* SpeechRecognizer.swift */; };
 		92D031CD2A2B220400F9CDBA /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D031CC2A2B220400F9CDBA /* MeetingView.swift */; };
-		92DBD34F2A273BBA0046D68E /* DuplicateEntryMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */; };
 		92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */; };
 		92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3522A273FD70046D68E /* MeetingViewModel.swift */; };
 		92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3542A2743740046D68E /* MeetingModel.swift */; };
@@ -57,7 +56,6 @@
 		928185DC2A28988D006E962E /* MeetingConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingConfirmationView.swift; sourceTree = "<group>"; };
 		928185DE2A289976006E962E /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		92D031CC2A2B220400F9CDBA /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
-		92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateEntryMessageView.swift; sourceTree = "<group>"; };
 		92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHistoryView.swift; sourceTree = "<group>"; };
 		92DBD3522A273FD70046D68E /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		92DBD3542A2743740046D68E /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 				927EF4C92A272D3F002D3EA7 /* HomeView.swift */,
 				927EF4CB2A272D4E002D3EA7 /* AllEmployeesView.swift */,
 				927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */,
-				92DBD34E2A273BBA0046D68E /* DuplicateEntryMessageView.swift */,
 				92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */,
 				92DBD3562A2745800046D68E /* SingleEmployeeView.swift */,
 				928185DC2A28988D006E962E /* MeetingConfirmationView.swift */,
@@ -289,7 +286,6 @@
 				92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */,
 				927EF4C02A27293B002D3EA7 /* EmployeesViewModel.swift in Sources */,
 				927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */,
-				92DBD34F2A273BBA0046D68E /* DuplicateEntryMessageView.swift in Sources */,
 				92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */,
 				928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */,
 				92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */,

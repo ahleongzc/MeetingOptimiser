@@ -15,7 +15,6 @@ class EmployeeEntryViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var position: PositionEnum = .E
     
-    @Published var employeeCreationConfirmation: Bool = false
     @Published var fieldNotValid: Bool = false
     
     @Published var inputErrorType: String = ""
@@ -29,11 +28,8 @@ class EmployeeEntryViewModel: ObservableObject {
         
     }
     
-    func checkIfValid() {
-        if (checkId() && checkName() && checkEmail()) {
-            fieldNotValid.toggle()
-            return
-        }
+    func fieldsAreValid() -> Bool {
+        return checkId() && checkName() && checkEmail()
     }
     
     private func checkName() -> Bool {
@@ -76,7 +72,11 @@ class EmployeeEntryViewModel: ObservableObject {
         return emailIsValid
     }
     
-    func generateEmployeeModel(completionHandler: @escaping (_ employee: EmployeeModel) -> ()) {
+    func generateEmployeeModel(completionHandler: @escaping (_ employee: EmployeeModel?) -> ()) {
+        if !fieldsAreValid() {
+            fieldNotValid.toggle()
+            return
+        }
         let newEmp = EmployeeModel(id: id, email: email, name: name, position: position)
         completionHandler(newEmp)
     }

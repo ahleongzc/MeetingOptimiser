@@ -18,8 +18,6 @@ struct DigitalClockView: View {
     @State var minute : NSInteger = 0
     @State var second : NSInteger = 0
     
-    let cyclePeriod = 0.5
-    
     var body: some View {
         ZStack {
             HStack {

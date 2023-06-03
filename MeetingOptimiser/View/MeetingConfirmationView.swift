@@ -10,32 +10,54 @@ import SwiftUI
 struct MeetingConfirmationView: View {
     
     @ObservedObject var meetingVM: MeetingViewModel
+    @EnvironmentObject var empVM: EmployeesViewModel
+    @State var date = Date()
+    
+    let clockTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
     let meeting: MeetingModel
     
     var body: some View {
-        VStack {
-            Text(meeting.id)
-            Text(meeting.topic)
-            
-            List {
+        NavigationView {
+            VStack {
+                
+                
+                Text(meeting.topic)
+                
                 ForEach(meeting.attendees) { attendees in
-                    Text(attendees.id ?? "12345")
+                }
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
                     
+                    NavigationLink {
+                        MeetingView()
+                    } label: {
+                        Text("Start meeting")
+                    }
+                    .padding()
+
+                    Spacer()
+                    
+                    Button(role: .destructive) {
+                        empVM.reset()
+                        meetingVM.reset()
+                    } label: {
+                        Text("Cancle")
+                    }
+                    
+                    Spacer()
                 }
             }
-            
-            NavigationLink {
-                MeetingView()
-            } label: {
-                Text("Start meeting")
-            }
         }
-        .padding()
     }
 }
 
 struct MeetingConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
         MeetingConfirmationView(meetingVM: MeetingViewModel(), meeting: .example)
+            .environmentObject(EmployeesViewModel())
     }
 }

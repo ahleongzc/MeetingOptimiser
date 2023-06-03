@@ -12,21 +12,32 @@ struct HomeView: View {
     @StateObject var meetingVm = MeetingViewModel()
     
     var body: some View {
-        TabView {
-            SetUpMeetingView()
-                .tabItem {
-                    Label("One", systemImage: "pencil")
-                }
-            
-            AllEmployeesView()
-                .tabItem {
-                    Label("Employees", systemImage: "pencil")
-                }
-            
-            MeetingHistoryView()
-                .tabItem {
-                    Label("History", systemImage: "pencil")
-                }
+        if let meeting = meetingVm.meeting {
+            MeetingConfirmationView(meetingVM: meetingVm, meeting: meeting)
+                .transition(
+                    .asymmetric(
+                        insertion: .move(edge: .bottom).animation(.easeIn),
+                        removal: .move(edge: .bottom).animation(.easeIn)
+                    )
+                )
+
+        } else {
+            TabView {
+                SetUpMeetingView(meetingVm: meetingVm)
+                    .tabItem {
+                        Label("Meeting", systemImage: "waveform.circle.fill")
+                    }
+                
+                AllEmployeesView()
+                    .tabItem {
+                        Label("Employees", systemImage: "person.3.fill")
+                    }
+                
+                MeetingHistoryView()
+                    .tabItem {
+                        Label("History", systemImage: "internaldrive.fill")
+                    }
+            }
         }
     }
 }

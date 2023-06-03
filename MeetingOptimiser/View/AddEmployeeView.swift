@@ -39,23 +39,42 @@ struct AddEmployeeView: View {
                 }.pickerStyle(.menu)
             }
             
-            Button {
-                entryVM.generateEmployeeModel { employee in
-                    empVM.addEmployee(employee: employee)
+            HStack {
+                
+                Spacer()
+                
+                Button {
+                    entryVM.generateEmployeeModel { employee in
+                        if let employee = employee {
+                            empVM.addEmployee(employee: employee)
+                            dismiss()
+                        }
+                    }
+                } label: {
+                    Text("Add to database")
                 }
-                dismiss()
-            } label: {
-                Text("Add to database")
+                .disabled(entryVM.fieldsEmpty)
+                .padding()
+                .alert(isPresented: $entryVM.fieldNotValid) {
+                    Alert(title: Text("Error with \(entryVM.inputErrorType)"), message: Text("\(entryVM.inputErrorDescription)"))
+                }
+                
+                Spacer()
             }
-            .disabled(entryVM.fieldsEmpty)
-            .padding()
-        }
+        
+            
+            
+            Spacer()
+        }.navigationTitle("Employee form")
+        
     }
 }
 
 struct AddEmployeeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEmployeeView()
-            .environmentObject(EmployeesViewModel())
+        NavigationView {
+            AddEmployeeView()
+                .environmentObject(EmployeesViewModel())
+        }
     }
 }
