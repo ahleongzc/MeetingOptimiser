@@ -16,6 +16,7 @@ class EmployeesViewModel: ObservableObject {
     @Published var employeeSelectionList: [SelectionEmployeeModel] = []
     @Published var selectedEmployees: [Employee] = []
     @Published var errorMessage: String?
+    @Published var addAttendees: Bool = false
 
     init() {
         getEmployees()
@@ -84,6 +85,7 @@ class EmployeesViewModel: ObservableObject {
             
             return
         }
+        
         saveData()
     }
     
@@ -97,6 +99,7 @@ class EmployeesViewModel: ObservableObject {
     func saveData() {
         manager.save()
         getEmployees()
+        print("saved")
     }
     
 }

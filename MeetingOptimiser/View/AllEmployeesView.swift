@@ -13,7 +13,7 @@ struct AllEmployeesView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            VStack {
                 List {
                     ForEach(empVM.employees) { unformattedEmp in
                         let employee = EmployeeModel(employee: unformattedEmp)
@@ -24,7 +24,7 @@ struct AllEmployeesView: View {
                 NavigationLink {
                     AddEmployeeView()
                 } label: {
-                    Text("move")
+                    Text("Add")
                 }
                 
                 if let message = empVM.errorMessage {

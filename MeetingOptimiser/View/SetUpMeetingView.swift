@@ -11,65 +11,101 @@ struct SetUpMeetingView: View {
     
     @StateObject var meetingVm = MeetingViewModel()
     @EnvironmentObject var empVM: EmployeesViewModel
-    @State var addAttendees = false
+    @State var showMeeting = 1
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    DigitalClockView()
-                        .padding()
-                    Spacer()
-                }
-                
-                Form {
-                    Section {
-                        TextField("Enter topic here", text: $meetingVm.topic)
-                            .padding()
-                    } header: {
-                        Text("Meeting Topic")
-                    }
-                    
-                    
-                    Section {
-                        ForEach(empVM.selectedEmployees) { selectedEmp in
-                            Text(selectedEmp.name ?? "")
+            ZStack {
+                if let meeting = meetingVm.meeting {
+                    MeetingConfirmationView(meetingVM: meetingVm, meeting: meeting)
+                            .transition(
+                                .asymmetric(
+                                    insertion: .move(edge: .bottom).animation(.easeIn),
+                                    removal: .move(edge: .top)
+                                )
+                            )
+                } else {
+                    VStack {
+                        HStack {
+                            DigitalClockView()
+                                .padding()
+                            Spacer()
                         }
-                    } header: {
-                        Text("Attendees")
+                        Form {
+                            Section {
+                                TextField("Enter topic here", text: $meetingVm.topic)
+                                    .padding()
+                            } header: {
+                                Text("Meeting topic")
+                            }
+                            
+                            Section {
+                                Picker("Position", selection: $meetingVm.summaryLength) {
+                                    ForEach(summaryLengthEnum.allCases, id: \.id) { length in
+                                        Text("\(length.rawValue)")
+                                    }
+                                }
+                                .pickerStyle(.segmented)
+                                .padding()
+                            } header: {
+                                Text("Summary length (words)")
+                            }
+                            
+                            Section {
+                                if empVM.selectedEmployees.isEmpty {
+                                    Text("There must be at least one attendee")
+                                        .foregroundColor(.secondary.opacity(0.5))
+                                        .padding()
+                                } else {
+                                    ForEach(empVM.selectedEmployees) { selectedEmp in
+                                        Text(selectedEmp.name ?? "")
+                                    }
+                                }
+                            } header: {
+                                Text("Attendees")
+                            }
+                            
+                        }
+                        
+                        bottomButtons
                     }
-                }
-                
-                HStack {
-                    Spacer()
-                    
-                    Button {
-                        addAttendees.toggle()
-                    } label: {
-                        Text("Add attendees")
+                    .sheet(isPresented: $empVM.addAttendees) {
+                        SelectEmployeesView()
                     }
-                    .foregroundColor(.blue)
-                    .padding()
-                    
-                    
-                    
-                    Spacer()
-                    
-                    
-                    NavigationLink {
-                        MeetingView(meeting: meetingVm.meeting)
-                    } label: {
-                        Text("Start Meeting")
-                    }
-                    .padding()
-                    
-                    Spacer()
+                    .navigationTitle("Meeting Optimiser")
                 }
             }
-            .sheet(isPresented: $addAttendees) {
-                SelectEmployeesView()
+        }
+    }
+}
+
+extension SetUpMeetingView {
+    
+    var bottomButtons: some View {
+        HStack {
+            Spacer()
+            
+            Button {
+                empVM.addAttendees.toggle()
+            } label: {
+                Text("Add attendees")
             }
-            .navigationTitle("Meeting Optimiser")
+            .foregroundColor(.blue)
+            .padding()
+            
+            Spacer()
+            
+            
+            Button {
+                meetingVm.createMeeting(attendees: empVM.selectedEmployees, startDate: Date())
+                print("created meeting")
+            } label: {
+                Text("Create Meeting")
+            }
+//            .disabled(meetingVm.topic.isEmpty || empVM.selectedEmployees.isEmpty)
+            .padding()
+            
+            Spacer()
         }
     }
 }

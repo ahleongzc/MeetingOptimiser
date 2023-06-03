@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject var meetingVm = MeetingViewModel()
+    
     var body: some View {
         TabView {
             SetUpMeetingView()
                 .tabItem {
                     Label("One", systemImage: "pencil")
                 }
-            
             
             AllEmployeesView()
                 .tabItem {

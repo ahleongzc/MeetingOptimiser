@@ -19,7 +19,6 @@ struct MeetingModel: Identifiable{
     let endDate: Date?
     let duration: Int16
     
-    
     static let example = MeetingModel(attendees: [], topic: "Topic", summaryLength: .threeHundred, startDate: Date())
     
     init(attendees: [Employee], topic: String, summaryLength: summaryLengthEnum, startDate: Date) {
@@ -47,7 +46,10 @@ struct MeetingModel: Identifiable{
     }
 }
 
-enum summaryLengthEnum: Int {
+enum summaryLengthEnum: Int, CaseIterable, Identifiable, Codable {
+    
+    var id: Self { self }
+    
     case threeHundred = 300
     case fourHundred = 400
     case fiveHundred = 500
