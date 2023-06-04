@@ -14,8 +14,8 @@ struct MeetingOptimiserApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            HomeView()
-            MeetingView()
+            HomeView()
+//            MeetingView()
                 .environmentObject(empVM)
         }
     }

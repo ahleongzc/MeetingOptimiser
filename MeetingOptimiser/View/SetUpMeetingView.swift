@@ -11,6 +11,7 @@ struct SetUpMeetingView: View {
     
     @ObservedObject var meetingVm: MeetingViewModel
     @EnvironmentObject var empVM: EmployeesViewModel
+    @State var resetFieldsToggle: Bool = false
     
     var body: some View {
         NavigationView {
@@ -19,6 +20,7 @@ struct SetUpMeetingView: View {
                     DigitalClockView()
                         .padding()
                     Spacer()
+                    
                 }
                 Form {
                     Section {
@@ -58,15 +60,35 @@ struct SetUpMeetingView: View {
                 
                 bottomButtons
             }
+            .toolbar {
+                
+                Button {
+                    resetFieldsToggle.toggle()
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                }
+            }
             .sheet(isPresented: $empVM.addAttendees) {
                 SelectEmployeesView()
+            }
+            .alert(isPresented: $resetFieldsToggle) {
+                Alert(title: Text("Reset Input Fields"), message: Text("This will reset all inputs in the form"), primaryButton: .cancel(), secondaryButton: alertButtonToDelete )
             }
             .navigationTitle("Meeting Optimiser")
         }
     }
 }
 
+
+
 extension SetUpMeetingView {
+    
+    var alertButtonToDelete: Alert.Button {
+        Alert.Button.destructive(Text("Confirm").bold()) {
+            empVM.reset()
+            meetingVm.reset()
+        }
+    }
     
     var bottomButtons: some View {
         HStack {
@@ -90,7 +112,7 @@ extension SetUpMeetingView {
             }
             .disabled(meetingVm.topic.isEmpty || empVM.selectedEmployees.isEmpty)
             .padding()
-
+            
             
             Spacer()
         }

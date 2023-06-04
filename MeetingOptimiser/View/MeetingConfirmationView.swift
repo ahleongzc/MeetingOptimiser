@@ -42,8 +42,6 @@ struct MeetingConfirmationView: View {
                     Spacer()
                     
                     Button(role: .destructive) {
-                        empVM.reset()
-                        meetingVM.reset()
                     } label: {
                         Text("Cancle")
                     }

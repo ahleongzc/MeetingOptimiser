@@ -37,6 +37,7 @@ class MeetingViewModel: ObservableObject {
         withAnimation {
             topic = ""
             meeting = nil
+            summaryLength = .threeHundred
         }
     }
 }

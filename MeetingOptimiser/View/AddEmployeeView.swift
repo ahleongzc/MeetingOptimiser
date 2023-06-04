@@ -61,8 +61,6 @@ struct AddEmployeeView: View {
                 
                 Spacer()
             }
-        
-            
             
             Spacer()
         }.navigationTitle("Employee form")

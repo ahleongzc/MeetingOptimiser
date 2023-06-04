@@ -80,12 +80,14 @@ class EmployeesViewModel: ObservableObject {
         
         if employees.contains(where: { $0.id == employee.id }) {
             errorMessage = "Duplicate ID: \(employee.id)"
+            manager.context.delete(newEmployee)
             duplicateEntry.toggle()
             return
         }
         
         saveData()
     }
+    
     
     func deleteEmployee(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
