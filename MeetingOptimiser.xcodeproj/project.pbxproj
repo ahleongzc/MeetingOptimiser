@@ -22,13 +22,13 @@
 		927EF4CE2A272D78002D3EA7 /* SetUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */; };
 		928185DD2A28988D006E962E /* MeetingConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DC2A28988D006E962E /* MeetingConfirmationView.swift */; };
 		928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DE2A289976006E962E /* SpeechRecognizer.swift */; };
+		9283CFEA2A2C71510040A742 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9283CFE92A2C71510040A742 /* Alamofire */; };
 		92D031CD2A2B220400F9CDBA /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D031CC2A2B220400F9CDBA /* MeetingView.swift */; };
 		92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */; };
 		92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3522A273FD70046D68E /* MeetingViewModel.swift */; };
 		92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3542A2743740046D68E /* MeetingModel.swift */; };
 		92DBD3572A2745800046D68E /* SingleEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3562A2745800046D68E /* SingleEmployeeView.swift */; };
 		92DBD3592A274AA00046D68E /* MeetingHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3582A274AA00046D68E /* MeetingHistoryViewModel.swift */; };
-		92DBD35C2A274B770046D68E /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 92DBD35B2A274B770046D68E /* OpenAISwift */; };
 		92DBD35E2A274B920046D68E /* OpenAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD35D2A274B920046D68E /* OpenAIViewModel.swift */; };
 		92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3602A2879890046D68E /* DigitalClockView.swift */; };
 		92DBD3632A2879C60046D68E /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3622A2879C60046D68E /* AnalogClockView.swift */; };
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92DBD35C2A274B770046D68E /* OpenAISwift in Frameworks */,
+				9283CFEA2A2C71510040A742 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +210,7 @@
 			);
 			name = MeetingOptimiser;
 			packageProductDependencies = (
-				92DBD35B2A274B770046D68E /* OpenAISwift */,
+				9283CFE92A2C71510040A742 /* Alamofire */,
 			);
 			productName = MeetingOptimiser;
 			productReference = 927EF4A52A272712002D3EA7 /* MeetingOptimiser.app */;
@@ -241,7 +241,7 @@
 			);
 			mainGroup = 927EF49C2A272712002D3EA7;
 			packageReferences = (
-				92DBD35A2A274B770046D68E /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				9283CFE82A2C71510040A742 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 927EF4A62A272712002D3EA7 /* Products */;
 			projectDirPath = "";
@@ -303,6 +303,7 @@
 /* Begin XCBuildConfiguration section */
 		927EF4B12A272713002D3EA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 925420FF2A2B46A200801571 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -363,6 +364,7 @@
 		};
 		927EF4B22A272713002D3EA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 925420FF2A2B46A200801571 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -501,21 +503,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		92DBD35A2A274B770046D68E /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+		9283CFE82A2C71510040A742 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		92DBD35B2A274B770046D68E /* OpenAISwift */ = {
+		9283CFE92A2C71510040A742 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 92DBD35A2A274B770046D68E /* XCRemoteSwiftPackageReference "OpenAISwift" */;
-			productName = OpenAISwift;
+			package = 9283CFE82A2C71510040A742 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 
