@@ -33,7 +33,7 @@ struct MeetingConfirmationView: View {
                     Spacer()
                     
                     NavigationLink {
-                        MeetingView()
+//                        MeetingView()
                     } label: {
                         Text("Start meeting")
                     }
@@ -42,6 +42,7 @@ struct MeetingConfirmationView: View {
                     Spacer()
                     
                     Button(role: .destructive) {
+                        meetingVM.cancleMeeting()
                     } label: {
                         Text("Cancle")
                     }

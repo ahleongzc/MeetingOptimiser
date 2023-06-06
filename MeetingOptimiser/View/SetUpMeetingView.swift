@@ -49,7 +49,7 @@ struct SetUpMeetingView: View {
                                 .padding()
                         } else {
                             ForEach(empVM.selectedEmployees) { selectedEmp in
-                                Text(selectedEmp.name ?? "")
+                                Text(selectedEmp.name)
                             }
                         }
                     } header: {
@@ -106,7 +106,7 @@ extension SetUpMeetingView {
             
             
             Button {
-                meetingVm.createMeeting(attendees: empVM.selectedEmployees)
+                meetingVm.createMeeting(employees: empVM.selectedEmployees)
             } label: {
                 Text("Create Meeting")
             }

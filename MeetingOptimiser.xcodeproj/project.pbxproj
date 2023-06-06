@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		924522A62A2F1DB500CD2B50 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */; };
 		927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */; };
 		927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4AA2A272712002D3EA7 /* ContentView.swift */; };
 		927EF4AD2A272713002D3EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927EF4AC2A272713002D3EA7 /* Assets.xcassets */; };
@@ -21,9 +22,8 @@
 		927EF4CC2A272D4E002D3EA7 /* AllEmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4CB2A272D4E002D3EA7 /* AllEmployeesView.swift */; };
 		927EF4CE2A272D78002D3EA7 /* SetUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */; };
 		928185DD2A28988D006E962E /* MeetingConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DC2A28988D006E962E /* MeetingConfirmationView.swift */; };
-		928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DE2A289976006E962E /* SpeechRecognizer.swift */; };
 		9283CFEA2A2C71510040A742 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9283CFE92A2C71510040A742 /* Alamofire */; };
-		92D031CD2A2B220400F9CDBA /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D031CC2A2B220400F9CDBA /* MeetingView.swift */; };
+		92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */; };
 		92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */; };
 		92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3522A273FD70046D68E /* MeetingViewModel.swift */; };
 		92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3542A2743740046D68E /* MeetingModel.swift */; };
@@ -36,9 +36,13 @@
 		92DBD3692A287EC50046D68E /* SelectEmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3682A287EC50046D68E /* SelectEmployeesView.swift */; };
 		92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */; };
 		92DBD3722A2894BF0046D68E /* SelectSingleEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3712A2894BF0046D68E /* SelectSingleEmployeeView.swift */; };
+		92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E172A2F011D00D532CE /* MeetingView.swift */; };
+		92DF7E1A2A2F03C100D532CE /* AttendeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E192A2F03C100D532CE /* AttendeeModel.swift */; };
+		92DF7E1C2A2F0E3500D532CE /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		925420FE2A2B3CD100801571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		925420FF2A2B46A200801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		927EF4A52A272712002D3EA7 /* MeetingOptimiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingOptimiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,8 +60,7 @@
 		927EF4CB2A272D4E002D3EA7 /* AllEmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmployeesView.swift; sourceTree = "<group>"; };
 		927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMeetingView.swift; sourceTree = "<group>"; };
 		928185DC2A28988D006E962E /* MeetingConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingConfirmationView.swift; sourceTree = "<group>"; };
-		928185DE2A289976006E962E /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		92D031CC2A2B220400F9CDBA /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
+		92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTTest.swift; sourceTree = "<group>"; };
 		92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHistoryView.swift; sourceTree = "<group>"; };
 		92DBD3522A273FD70046D68E /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		92DBD3542A2743740046D68E /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
@@ -70,6 +73,9 @@
 		92DBD3682A287EC50046D68E /* SelectEmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmployeesView.swift; sourceTree = "<group>"; };
 		92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionEmployeeModel.swift; sourceTree = "<group>"; };
 		92DBD3712A2894BF0046D68E /* SelectSingleEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSingleEmployeeView.swift; sourceTree = "<group>"; };
+		92DF7E172A2F011D00D532CE /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
+		92DF7E192A2F03C100D532CE /* AttendeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeModel.swift; sourceTree = "<group>"; };
+		92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +137,7 @@
 				927EF4C32A272AD7002D3EA7 /* EmployeeModel.swift */,
 				92DBD3542A2743740046D68E /* MeetingModel.swift */,
 				92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */,
-				928185DE2A289976006E962E /* SpeechRecognizer.swift */,
+				92DF7E192A2F03C100D532CE /* AttendeeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 		927EF4B72A27282F002D3EA7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */,
 				927EF4BF2A27293B002D3EA7 /* EmployeesViewModel.swift */,
 				927EF4C72A272B73002D3EA7 /* EmployeeEntryViewModel.swift */,
 				92DBD3522A273FD70046D68E /* MeetingViewModel.swift */,
@@ -160,7 +167,9 @@
 				92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */,
 				92DBD3562A2745800046D68E /* SingleEmployeeView.swift */,
 				928185DC2A28988D006E962E /* MeetingConfirmationView.swift */,
-				92D031CC2A2B220400F9CDBA /* MeetingView.swift */,
+				92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */,
+				92DF7E172A2F011D00D532CE /* MeetingView.swift */,
+				92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,15 +295,18 @@
 				927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */,
 				927EF4CC2A272D4E002D3EA7 /* AllEmployeesView.swift in Sources */,
 				927EF4C82A272B73002D3EA7 /* EmployeeEntryViewModel.swift in Sources */,
+				92DF7E1A2A2F03C100D532CE /* AttendeeModel.swift in Sources */,
 				92DBD3632A2879C60046D68E /* AnalogClockView.swift in Sources */,
 				92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */,
 				927EF4C02A27293B002D3EA7 /* EmployeesViewModel.swift in Sources */,
+				92DF7E1C2A2F0E3500D532CE /* SpeakerView.swift in Sources */,
 				927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */,
 				92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */,
-				928185DF2A289976006E962E /* SpeechRecognizer.swift in Sources */,
 				92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */,
 				92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */,
-				92D031CD2A2B220400F9CDBA /* MeetingView.swift in Sources */,
+				92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */,
+				924522A62A2F1DB500CD2B50 /* SpeechRecognizer.swift in Sources */,
+				92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,11 +442,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeetingOptimiser/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,11 +476,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MeetingOptimiser/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

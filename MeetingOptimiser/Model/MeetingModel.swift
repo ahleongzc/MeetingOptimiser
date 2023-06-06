@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct MeetingModel: Identifiable{
+struct MeetingModel: Identifiable {
     
     let id: String
-    let attendees: [Employee]
+    let attendees: [EmployeeModel]
     let topic: String
     let summary: String
     let summaryLength: summaryLengthEnum
@@ -19,10 +19,11 @@ struct MeetingModel: Identifiable{
     let endDate: Date?
     let duration: Int16
     
-    static let example = MeetingModel(attendees: [], topic: "Topic", summaryLength: .threeHundred, startDate: Date())
-    
-    
-    init(attendees: [Employee], topic: String, summaryLength: summaryLengthEnum, startDate: Date) {
+//    static let example = MeetingModel(attendees: [AttendeeModel(attendee: .example, isSpeaking: true), AttendeeModel(attendee: .example2)], topic: "Topic", summaryLength: .threeHundred, startDate: Date())
+
+    static let example = MeetingModel(attendees: [.example, .example2], topic: "Topic", summaryLength: .threeHundred, startDate: Date())
+
+    init(attendees: [EmployeeModel], topic: String, summaryLength: summaryLengthEnum, startDate: Date) {
         self.id = UUID().uuidString
         self.attendees = attendees
         self.topic = topic
@@ -34,7 +35,7 @@ struct MeetingModel: Identifiable{
         self.duration = 0
     }
     
-    init(attendees: [Employee], topic: String, summaryLength: summaryLengthEnum) {
+    init(attendees: [EmployeeModel], topic: String, summaryLength: summaryLengthEnum) {
         self.id = UUID().uuidString
         self.attendees = attendees
         self.topic = topic
@@ -46,7 +47,7 @@ struct MeetingModel: Identifiable{
         self.duration = 0
     }
     
-    init(id: String, attendees: [Employee], topic: String, summary: String, summaryLength: summaryLengthEnum, transcript: String, startDate: Date, endDate:Date, duration: Int16) {
+    init(id: String, attendees: [EmployeeModel], topic: String, summary: String, summaryLength: summaryLengthEnum, transcript: String, startDate: Date, endDate:Date, duration: Int16) {
         self.id = id
         self.attendees = attendees
         self.topic = topic
@@ -57,6 +58,8 @@ struct MeetingModel: Identifiable{
         self.endDate = endDate
         self.duration = duration
     }
+    
+
 }
 
 enum summaryLengthEnum: Int, CaseIterable, Identifiable, Codable {

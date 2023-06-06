@@ -14,7 +14,7 @@ class EmployeesViewModel: ObservableObject {
     
     @Published var employees: [Employee] = []
     @Published var employeeSelectionList: [SelectionEmployeeModel] = []
-    @Published var selectedEmployees: [Employee] = []
+    @Published var selectedEmployees: [EmployeeModel] = []
     @Published var duplicateEntry: Bool = false
     @Published var errorMessage: String = ""
     @Published var addAttendees: Bool = false
@@ -25,27 +25,20 @@ class EmployeesViewModel: ObservableObject {
     
     func reset() {
         selectedEmployees = []
-        reinitialiseSelectedEmployees()
+        reinitialiseEmployeeSelectionList()
     }
     
     func getSelectedEmployees() {
         selectedEmployees = []
         for selectionEmployeeModel in employeeSelectionList {
             if selectionEmployeeModel.isSelected {
-                let model = selectionEmployeeModel.employee
-                
-                let newEmployee = Employee(context: manager.context)
-                newEmployee.id = model.id
-                newEmployee.name = model.name
-                newEmployee.email = model.email
-                newEmployee.position = model.position.rawValue
-                
-                selectedEmployees.append(newEmployee)
+                let empModel = selectionEmployeeModel.employee
+                selectedEmployees.append(empModel)
             }
         }
     }
     
-    func reinitialiseSelectedEmployees() {
+    func reinitialiseEmployeeSelectionList() {
         employeeSelectionList = []
         for employee in employees {
             let empModel = EmployeeModel(employee: employee)
@@ -58,7 +51,7 @@ class EmployeesViewModel: ObservableObject {
         let request = NSFetchRequest<Employee>(entityName: "Employee")
         do {
             employees = try manager.context.fetch(request)
-            reinitialiseSelectedEmployees()
+            reinitialiseEmployeeSelectionList()
         } catch let error {
             print("Error fetching. \(error.localizedDescription)")
         }
