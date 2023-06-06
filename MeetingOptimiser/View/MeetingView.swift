@@ -10,7 +10,7 @@ import AVFoundation
 
 struct MeetingView: View {
     
-    @StateObject var speechRecogniser: SpeechRecognizer = SpeechRecognizer()
+    @StateObject var speechRecVM = SpeechRecognizerViewModel()
     @ObservedObject var meetingVM: MeetingViewModel
     
     var body: some View {
@@ -19,7 +19,7 @@ struct MeetingView: View {
             Text("Speaker is : \(meetingVM.currentSpeaker?.name ?? "")")
             
             Text("Transcript")
-            Text(speechRecogniser.transcript)
+            Text(speechRecVM.transcript)
             List {
                 ForEach(meetingVM.meeting?.attendees ?? []) { attendee in
                     SpeakerView(speaker: attendee)
@@ -31,15 +31,15 @@ struct MeetingView: View {
             }
             
             Button {
-                speechRecogniser.stopTranscribing()
+                speechRecVM.stopTranscribing()
                 meetingVM.stopMeeting()
             } label: {
                 Text("Stop ")
             }
         }
         .onAppear {
-            speechRecogniser.resetTranscript()
-            speechRecogniser.startTranscribing()
+            speechRecVM.resetTranscript()
+            speechRecVM.startTranscribing()
             meetingVM.startMeeting()
         }
     }

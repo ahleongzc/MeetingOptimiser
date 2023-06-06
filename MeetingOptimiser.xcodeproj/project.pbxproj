@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		924522A62A2F1DB500CD2B50 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */; };
+		924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */; };
 		927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */; };
 		927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4AA2A272712002D3EA7 /* ContentView.swift */; };
 		927EF4AD2A272713002D3EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927EF4AC2A272713002D3EA7 /* Assets.xcassets */; };
@@ -42,7 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewModel.swift; sourceTree = "<group>"; };
 		925420FE2A2B3CD100801571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		925420FF2A2B46A200801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		927EF4A52A272712002D3EA7 /* MeetingOptimiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingOptimiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +145,7 @@
 		927EF4B72A27282F002D3EA7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				924522A52A2F1DB500CD2B50 /* SpeechRecognizer.swift */,
+				924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */,
 				927EF4BF2A27293B002D3EA7 /* EmployeesViewModel.swift */,
 				927EF4C72A272B73002D3EA7 /* EmployeeEntryViewModel.swift */,
 				92DBD3522A273FD70046D68E /* MeetingViewModel.swift */,
@@ -305,7 +305,7 @@
 				92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */,
 				92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */,
 				92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */,
-				924522A62A2F1DB500CD2B50 /* SpeechRecognizer.swift in Sources */,
+				924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */,
 				92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
