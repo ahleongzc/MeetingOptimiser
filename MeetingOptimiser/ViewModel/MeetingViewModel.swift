@@ -24,11 +24,38 @@ class MeetingViewModel: ObservableObject {
     @Published var meeting: MeetingModel? = MeetingModel.example
     @Published var invalidMeeting: Bool = true
     @Published var currentSpeaker: EmployeeModel? = nil
+    @Published var secondsElapsed = 0
+    
+    private weak var timer: Timer?
+    private var frequency: TimeInterval { 1.0 / 60.0 }
+    private var startDate: Date?
+    
+    /// Start the timer.
+    func startMeeting() {
+        timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
+            self?.update()
+        }
+        timer?.tolerance = 0.1
+        currentSpeaker = meeting?.attendees.first ?? .example
+    }
+    
+    func stopMeeting() {
+        timer?.invalidate()
+    }
+    
+    nonisolated private func update() {
+        Task { @MainActor in
+            guard let startDate else { return }
+            let secondsElapsed = Int(Date().timeIntervalSince1970 - startDate.timeIntervalSince1970)
+            self.secondsElapsed = secondsElapsed
+        }
+    }
     
     
     init() {
         topic = "Testing"
         createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
+        startDate = Date()
     }
     
     func createMeeting(employees: [EmployeeModel]) {

@@ -12,10 +12,10 @@ struct MeetingView: View {
     
     @StateObject var speechRecogniser: SpeechRecognizer = SpeechRecognizer()
     @ObservedObject var meetingVM: MeetingViewModel
-    @State private var isRecording = false
     
     var body: some View {
         VStack {
+            Text("\(meetingVM.secondsElapsed)")
             Text("Speaker is : \(meetingVM.currentSpeaker?.name ?? "")")
             
             Text("Transcript")
@@ -31,19 +31,16 @@ struct MeetingView: View {
             }
             
             Button {
-                isRecording = true
-                speechRecogniser.resetTranscript()
-                speechRecogniser.startTranscribing()
-            } label: {
-                Text("Start transcribe")
-            }
-            
-            Button {
-                isRecording = false
                 speechRecogniser.stopTranscribing()
+                meetingVM.stopMeeting()
             } label: {
                 Text("Stop ")
             }
+        }
+        .onAppear {
+            speechRecogniser.resetTranscript()
+            speechRecogniser.startTranscribing()
+            meetingVM.startMeeting()
         }
     }
 }
