@@ -36,7 +36,8 @@ struct AddEmployeeView: View {
                     ForEach(PositionEnum.allCases, id: \.id) { type in
                         Text(type.rawValue)
                     }
-                }.pickerStyle(.menu)
+                }
+                .pickerStyle(.menu)
             }
             
             HStack {

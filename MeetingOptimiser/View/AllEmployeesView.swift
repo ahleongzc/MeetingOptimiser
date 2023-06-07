@@ -19,7 +19,8 @@ struct AllEmployeesView: View {
                         ForEach(empVM.employees) { unformattedEmp in
                             let employee = EmployeeModel(employee: unformattedEmp)
                             SingleEmployeeView(employee: employee)
-                        }.onDelete(perform: empVM.deleteEmployee)
+                        }
+                        .onDelete(perform: empVM.deleteEmployee)
                     }
                     
                     NavigationLink {

@@ -20,8 +20,8 @@ struct SetUpMeetingView: View {
                     DigitalClockView()
                         .padding()
                     Spacer()
-                    
                 }
+                
                 Form {
                     Section {
                         TextField("Enter topic here", text: $meetingVm.topic)
@@ -49,19 +49,28 @@ struct SetUpMeetingView: View {
                                 .padding()
                         } else {
                             ForEach(empVM.selectedEmployees) { selectedEmp in
-                                Text(selectedEmp.name)
+                                if let index = empVM.selectedEmployees.firstIndex(where: { $0.id == selectedEmp.id }) {
+                                    if index == 0 {
+                                        HStack {
+                                            Text(selectedEmp.name)
+                                                .bold()
+                                            Spacer()
+                                            Text("First speaker")
+                                        }
+                                    } else {
+                                        Text(selectedEmp.name)
+                                    }
+                                }
                             }
                         }
                     } header: {
                         Text("Attendees")
                     }
-                    
                 }
                 
                 bottomButtons
             }
             .toolbar {
-                
                 Button {
                     resetFieldsToggle.toggle()
                 } label: {

@@ -9,13 +9,34 @@ import SwiftUI
 
 struct SelectSingleEmployeeView: View {
     
-    let employee: SelectionEmployeeModel
+    @EnvironmentObject var empVM: EmployeesViewModel
+    
+    let employeeSelection: SelectionEmployeeModel
     
     var body: some View {
         HStack {
-            Text(employee.employee.name)
+            VStack(alignment: .leading) {
+                Text(employeeSelection.employee.name)
+                    .font(.title2)
+                    .bold()
+                VStack(alignment: .leading) {
+                    Text(employeeSelection.employee.id)
+                    Text(employeeSelection.employee.position.rawValue)
+                }
+                .font(.caption)
+                .foregroundColor(.gray)
+            }
+            
             Spacer()
-            if employee.isSelected {
+            
+            if let first = empVM.selectedEmployees.first {
+                if employeeSelection.employee == first {
+                    Text("First speaker")
+                        .font(.subheadline)
+                }
+            }
+            
+            if employeeSelection.isSelected {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.green)
             }
@@ -25,6 +46,7 @@ struct SelectSingleEmployeeView: View {
 
 struct SelectSingleEmployeeView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectSingleEmployeeView(employee: .example)
+        SelectSingleEmployeeView(employeeSelection: .example)
+            .environmentObject(EmployeesViewModel())
     }
 }

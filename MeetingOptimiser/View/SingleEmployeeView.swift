@@ -12,9 +12,24 @@ struct SingleEmployeeView: View {
     let employee: EmployeeModel
     
     var body: some View {
-        VStack {
-            Text(employee.name)
-            Text(employee.id)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(employee.name)
+                    .font(.title2)
+                    .bold()
+                VStack(alignment: .leading) {
+                    Text(employee.id)
+                    Text(employee.email)
+                }
+                .font(.caption)
+                .foregroundColor(.gray)
+            }
+            
+            Spacer()
+            
+            Text(employee.position.rawValue)
+                .font(.subheadline)
+                .foregroundColor(.blue)
         }
     }
 }

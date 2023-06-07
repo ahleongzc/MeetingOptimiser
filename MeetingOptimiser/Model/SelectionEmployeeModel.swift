@@ -29,6 +29,10 @@ struct SelectionEmployeeModel: Identifiable {
         return SelectionEmployeeModel(employee: employee, isSelected: !isSelected)
     }
     
+    func select() -> SelectionEmployeeModel {
+        return SelectionEmployeeModel(employee: employee, isSelected: true)
+    }
+    
     static let example = SelectionEmployeeModel(employee: EmployeeModel.example)
     
 }

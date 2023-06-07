@@ -18,7 +18,7 @@ class EmployeesViewModel: ObservableObject {
     @Published var duplicateEntry: Bool = false
     @Published var errorMessage: String = ""
     @Published var addAttendees: Bool = false
-
+    
     init() {
         getEmployees()
     }
@@ -26,16 +26,6 @@ class EmployeesViewModel: ObservableObject {
     func reset() {
         selectedEmployees = []
         reinitialiseEmployeeSelectionList()
-    }
-    
-    func getSelectedEmployees() {
-        selectedEmployees = []
-        for selectionEmployeeModel in employeeSelectionList {
-            if selectionEmployeeModel.isSelected {
-                let empModel = selectionEmployeeModel.employee
-                selectedEmployees.append(empModel)
-            }
-        }
     }
     
     func reinitialiseEmployeeSelectionList() {
@@ -49,6 +39,9 @@ class EmployeesViewModel: ObservableObject {
     
     func getEmployees() {
         let request = NSFetchRequest<Employee>(entityName: "Employee")
+        let sort = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sort]
+        
         do {
             employees = try manager.context.fetch(request)
             reinitialiseEmployeeSelectionList()
@@ -59,8 +52,36 @@ class EmployeesViewModel: ObservableObject {
     
     func choseEmployee(employee: SelectionEmployeeModel) {
         if let index = employeeSelectionList.firstIndex(where: { $0.id == employee.id }) {
+            
+            let empSelection = employeeSelectionList[index]
+            let empModel = empSelection.employee
+            
+            if empSelection.isSelected {
+                removeFromSelectedEmployees(empModel)
+            } else {
+                selectedEmployees.append(empModel)
+            }
+            
             employeeSelectionList[index] = employee.updateSelection()
-            print("")
+        }
+    }
+    
+    func removeFromSelectedEmployees(_ empModel: EmployeeModel) {
+        if let index = selectedEmployees.firstIndex(where: {$0.id == empModel.id}) {
+            selectedEmployees.remove(at: index)
+        }
+    }
+    
+    func moveToFirst(_ employee: SelectionEmployeeModel) {
+        if let index = employeeSelectionList.firstIndex(where: { $0.id == employee.id }) {
+            
+            let empSelection = employeeSelectionList[index]
+            let empModel = empSelection.employee
+            
+            removeFromSelectedEmployees(empModel)
+            selectedEmployees.insert(empModel, at: 0)
+    
+            employeeSelectionList[index] = employee.select()
         }
     }
     

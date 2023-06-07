@@ -14,6 +14,7 @@ struct SpeakerView: View {
     var body: some View {
         HStack {
             Text(speaker.name)
+            Spacer()
         }
     }
 }

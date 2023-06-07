@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmployeeModel: Identifiable, Hashable {
+struct EmployeeModel: Identifiable, Hashable, Equatable {
     
     let id: String
     let email: String
@@ -28,7 +28,11 @@ struct EmployeeModel: Identifiable, Hashable {
         self.position = PositionEnum(rawValue: employee.position ?? "Employee") ?? .E
     }
     
-    static let example = EmployeeModel(id: "11111", email: "email1", name: "one", position: .CEO)
+    static func == (lhs: EmployeeModel, rhs: EmployeeModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    static let example = EmployeeModel(id: "11111", email: "leong@gmail.com", name: "Leong Zhe Cheng", position: .CEO)
     static let example2 = EmployeeModel(id: "22222", email: "email2", name: "two", position: .SE)
     static let example3 = EmployeeModel(id: "33333", email: "email3", name: "three", position: .E)
     static let example4 = EmployeeModel(id: "44444", email: "email4", name: "four", position: .SE)

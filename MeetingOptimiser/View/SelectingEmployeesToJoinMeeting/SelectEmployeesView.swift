@@ -14,19 +14,32 @@ struct SelectEmployeesView: View {
     
     var body: some View {
         VStack {
+            Text("The first person chosen will be the first speaker (swipe to set)")
+                .multilineTextAlignment(.center)
+                .font(.callout)
+                .foregroundColor(.gray)
+                .bold()
+                .padding()
+            
             List {
-                ForEach(empVM.employeeSelectionList) { employee in
-                    SelectSingleEmployeeView(employee: employee)
+                ForEach(empVM.employeeSelectionList) { employeeSelection in
+                    SelectSingleEmployeeView(employeeSelection: employeeSelection)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation(.linear) {
-                                empVM.choseEmployee(employee: employee)
+                                empVM.choseEmployee(employee: employeeSelection)
+                            }
+                        }
+                        .swipeActions {
+                            Button {
+                                empVM.moveToFirst(employeeSelection)
+                            } label: {
+                                Text("Set as 1st")
                             }
                         }
                 }
             }
             Button {
-                empVM.getSelectedEmployees()
                 dismiss()
             } label: {
                 Text("Finish")

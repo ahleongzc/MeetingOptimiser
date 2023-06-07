@@ -11,21 +11,52 @@ struct MeetingConfirmationView: View {
     
     @ObservedObject var meetingVM: MeetingViewModel
     @EnvironmentObject var empVM: EmployeesViewModel
-    @State var date = Date()
-    
-    let clockTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     let meeting: MeetingModel
     
     var body: some View {
         NavigationView {
             VStack {
-                
-                
-                Text(meeting.topic)
-                
-                ForEach(meeting.attendees) { attendees in
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Meeting topic:")
+                            .font(.title3)
+                            .bold()
+                        Text(meeting.topic)
+                            .padding(.top, 1)
+                    }
+                    Spacer()
                 }
+                .padding()
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Summary length :")
+                            .font(.title3)
+                            .bold()
+                        Text("\(meeting.summaryLength.rawValue) words")
+                            .padding(.top, 1)
+                    }
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    Text("Attendees:")
+                        .font(.title3)
+                        .bold()
+                    Spacer()
+                }
+                .padding()
+                
+                List {
+                    ForEach(meeting.attendees) { attendee in
+                        HStack {
+                            Text(attendee.name)
+                        }
+                    }
+                }
+                .listStyle(.plain)
                 
                 Spacer()
                 
@@ -33,7 +64,7 @@ struct MeetingConfirmationView: View {
                     Spacer()
                     
                     NavigationLink {
-//                        MeetingView()
+                        MeetingView(meetingVM: meetingVM)
                     } label: {
                         Text("Start meeting")
                     }
@@ -50,6 +81,7 @@ struct MeetingConfirmationView: View {
                     Spacer()
                 }
             }
+            .navigationTitle("Confirmation page")
         }
     }
 }

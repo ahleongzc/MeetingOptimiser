@@ -21,7 +21,7 @@ class MeetingViewModel: ObservableObject {
     //    let endDate: Date?
     //    let duration: Int16
     
-    @Published var meeting: MeetingModel? = MeetingModel.example
+    @Published var meeting: MeetingModel? = nil
     @Published var invalidMeeting: Bool = true
     @Published var currentSpeaker: EmployeeModel? = nil
     @Published var secondsElapsed = 0
@@ -32,6 +32,7 @@ class MeetingViewModel: ObservableObject {
     
     /// Start the timer.
     func startMeeting() {
+        startDate = Date()
         timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
             self?.update()
         }
@@ -39,8 +40,16 @@ class MeetingViewModel: ObservableObject {
         currentSpeaker = meeting?.attendees.first ?? .example
     }
     
-    func stopMeeting() {
+    func saveMeeting() {
+        print("Saving meeting")
+    }
+    
+    func endMeeting() {
         timer?.invalidate()
+        saveMeeting()
+        withAnimation {
+            meeting = nil
+        }
     }
     
     nonisolated private func update() {
@@ -59,8 +68,10 @@ class MeetingViewModel: ObservableObject {
     }
     
     func createMeeting(employees: [EmployeeModel]) {
-        meeting = MeetingModel(attendees: employees, topic: topic, summaryLength: summaryLength)
-        currentSpeaker = meeting?.attendees.first
+        withAnimation {
+            meeting = MeetingModel(attendees: employees, topic: topic, summaryLength: summaryLength)
+            currentSpeaker = meeting?.attendees.first
+        }
     }
     
     func isSpeaker(_ employee: EmployeeModel) -> Bool {
@@ -86,4 +97,5 @@ class MeetingViewModel: ObservableObject {
         if curr.id == speaker.id { return }
         currentSpeaker = speaker
     }
+
 }

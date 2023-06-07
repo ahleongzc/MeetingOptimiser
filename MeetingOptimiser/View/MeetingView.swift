@@ -12,36 +12,61 @@ struct MeetingView: View {
     
     @StateObject var speechRecVM = SpeechRecognizerViewModel()
     @ObservedObject var meetingVM: MeetingViewModel
+    @State var endMeetingConfirmation: Bool = false
     
     var body: some View {
         VStack {
             Text("\(meetingVM.secondsElapsed)")
-            Text("Speaker is : \(meetingVM.currentSpeaker?.name ?? "")")
+            Text("Current speaker is : \(meetingVM.currentSpeaker?.name ?? "")")
             
             Text("Transcript")
             Text(speechRecVM.transcript)
+            
             List {
                 ForEach(meetingVM.meeting?.attendees ?? []) { attendee in
-                    SpeakerView(speaker: attendee)
-                        .background(meetingVM.isSpeaker(attendee) ? .red : .green)
-                        .onTapGesture {
-                            meetingVM.changeSpeaker(attendee)
+                    HStack {
+                        SpeakerView(speaker: attendee)
+                            .contentShape(Rectangle())
+                            .font(isMainSpeaker(attendee) ? .body.bold() : .none)
+                            .onTapGesture {
+                                meetingVM.changeSpeaker(attendee)
+                            }
+                        
+                        Spacer()
+                        
+                        if isMainSpeaker(attendee) {
+                            Text("is speaking")
+                                .bold()
                         }
+                    }
                 }
             }
             
             Button {
-                speechRecVM.stopTranscribing()
-                meetingVM.stopMeeting()
+                endMeetingConfirmation.toggle()
             } label: {
-                Text("Stop ")
+                Text("End meeting")
             }
         }
         .onAppear {
-            speechRecVM.resetTranscript()
-            speechRecVM.startTranscribing()
-            meetingVM.startMeeting()
+//            speechRecVM.resetTranscript()
+//            speechRecVM.startTranscribing()
+//            meetingVM.startMeeting()
         }
+        .toolbar(.hidden)
+        .alert("End Meeting", isPresented: $endMeetingConfirmation) {
+            Button("Cancle", role: .cancel) {}
+            Button("Confirm", role: .destructive) { endMeeting() }
+        }
+    }
+    
+    func endMeeting() {
+        speechRecVM.stopTranscribing()
+        meetingVM.endMeeting()
+    }
+    
+    func isMainSpeaker(_ curr: EmployeeModel) -> Bool {
+        return curr == meetingVM.currentSpeaker
     }
 }
 
