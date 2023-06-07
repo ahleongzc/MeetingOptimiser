@@ -5,6 +5,14 @@ import SwiftUI
 
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 actor SpeechRecognizerViewModel: ObservableObject {
+    
+    @MainActor func saveTranscript(completionHandler: @escaping (String) -> ()) {
+        completionHandler(transcript)
+        resetTranscript()
+        startTranscribing()
+        transcript = ""
+    }
+    
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -77,6 +85,7 @@ actor SpeechRecognizerViewModel: ObservableObject {
      Creates a `SFSpeechRecognitionTask` that transcribes speech to text until you call `stopTranscribing()`.
      The resulting transcription is continuously written to the published `transcript` property.
      */
+    
     private func transcribe() {
         guard let recognizer, recognizer.isAvailable else {
             self.transcribe(RecognizerError.recognizerIsUnavailable)

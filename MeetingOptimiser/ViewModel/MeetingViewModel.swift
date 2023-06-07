@@ -62,9 +62,8 @@ class MeetingViewModel: ObservableObject {
     
     
     init() {
-        topic = "Testing"
-        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
-        startDate = Date()
+//        topic = "Testing"
+//        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
     }
     
     func createMeeting(employees: [EmployeeModel]) {

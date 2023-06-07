@@ -13,31 +13,38 @@ struct MeetingView: View {
     @StateObject var speechRecVM = SpeechRecognizerViewModel()
     @ObservedObject var meetingVM: MeetingViewModel
     @State var endMeetingConfirmation: Bool = false
+    @State var transcripts = [String]()
     
     var body: some View {
         VStack {
-            Text("\(meetingVM.secondsElapsed)")
-            Text("Current speaker is : \(meetingVM.currentSpeaker?.name ?? "")")
             
-            Text("Transcript")
-            Text(speechRecVM.transcript)
+            Text("Second elapsed: \(meetingVM.secondsElapsed)")
+            Text("Transcript: \(speechRecVM.transcript)")
             
             List {
-                ForEach(meetingVM.meeting?.attendees ?? []) { attendee in
-                    HStack {
-                        SpeakerView(speaker: attendee)
-                            .contentShape(Rectangle())
-                            .font(isMainSpeaker(attendee) ? .body.bold() : .none)
-                            .onTapGesture {
-                                meetingVM.changeSpeaker(attendee)
+                Section {
+                    ForEach(meetingVM.meeting?.attendees ?? []) { attendee in
+                        HStack {
+                            SpeakerView(speaker: attendee)
+                                .contentShape(Rectangle())
+                                .font(isMainSpeaker(attendee) ? .body.bold() : .none)
+                                .onTapGesture {
+                                    changeSpeaker(attendee)
+                                }
+                            
+                            Spacer()
+                            
+                            if isMainSpeaker(attendee) {
+                                Text("is speaking")
+                                    .bold()
                             }
-                        
-                        Spacer()
-                        
-                        if isMainSpeaker(attendee) {
-                            Text("is speaking")
-                                .bold()
                         }
+                    }
+                }
+                
+                Section {
+                    ForEach(transcripts, id: \.self) { transcript in
+                        Text(transcript)
                     }
                 }
             }
@@ -49,9 +56,7 @@ struct MeetingView: View {
             }
         }
         .onAppear {
-//            speechRecVM.resetTranscript()
-//            speechRecVM.startTranscribing()
-//            meetingVM.startMeeting()
+            startMeeting()
         }
         .toolbar(.hidden)
         .alert("End Meeting", isPresented: $endMeetingConfirmation) {
@@ -60,13 +65,29 @@ struct MeetingView: View {
         }
     }
     
+    func startMeeting() {
+        speechRecVM.resetTranscript()
+        speechRecVM.startTranscribing()
+        meetingVM.startMeeting()
+    }
+    
     func endMeeting() {
+        speechRecVM.saveTranscript { transcript in
+            transcripts.append(transcript)
+        }
         speechRecVM.stopTranscribing()
         meetingVM.endMeeting()
     }
     
     func isMainSpeaker(_ curr: EmployeeModel) -> Bool {
         return curr == meetingVM.currentSpeaker
+    }
+    
+    func changeSpeaker(_ attendee: EmployeeModel) {
+        meetingVM.changeSpeaker(attendee)
+        speechRecVM.saveTranscript { transcript in
+            transcripts.append(transcript)
+        }
     }
 }
 
