@@ -6,7 +6,7 @@ import SwiftUI
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 actor SpeechRecognizerViewModel: ObservableObject {
     
-    @MainActor func saveTranscript(completionHandler: @escaping (String) -> ()) {
+    @MainActor func returnTranscript(completionHandler: @escaping (String) -> ()) {
         completionHandler(transcript)
         resetTranscript()
         startTranscribing()

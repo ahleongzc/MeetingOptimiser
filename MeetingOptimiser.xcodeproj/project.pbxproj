@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92287C3E2A371CA500AB318A /* SingleMeetingDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92287C3D2A371CA500AB318A /* SingleMeetingDetailedView.swift */; };
 		924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */; };
 		927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */; };
 		927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4AA2A272712002D3EA7 /* ContentView.swift */; };
@@ -24,11 +25,13 @@
 		928185DD2A28988D006E962E /* MeetingConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928185DC2A28988D006E962E /* MeetingConfirmationView.swift */; };
 		9283CFEA2A2C71510040A742 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9283CFE92A2C71510040A742 /* Alamofire */; };
 		92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */; };
+		92DB42CA2A3377C500D02876 /* TranscriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB42C92A3377C500D02876 /* TranscriptModel.swift */; };
+		92DB42CC2A34D6D800D02876 /* TranscriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB42CB2A34D6D800D02876 /* TranscriptManager.swift */; };
+		92DB42CE2A371B1800D02876 /* SingleMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB42CD2A371B1800D02876 /* SingleMeetingView.swift */; };
 		92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */; };
 		92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3522A273FD70046D68E /* MeetingViewModel.swift */; };
 		92DBD3552A2743740046D68E /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3542A2743740046D68E /* MeetingModel.swift */; };
 		92DBD3572A2745800046D68E /* SingleEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3562A2745800046D68E /* SingleEmployeeView.swift */; };
-		92DBD3592A274AA00046D68E /* MeetingHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3582A274AA00046D68E /* MeetingHistoryViewModel.swift */; };
 		92DBD35E2A274B920046D68E /* OpenAIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD35D2A274B920046D68E /* OpenAIViewModel.swift */; };
 		92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3602A2879890046D68E /* DigitalClockView.swift */; };
 		92DBD3632A2879C60046D68E /* AnalogClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3622A2879C60046D68E /* AnalogClockView.swift */; };
@@ -42,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92287C3D2A371CA500AB318A /* SingleMeetingDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMeetingDetailedView.swift; sourceTree = "<group>"; };
 		924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewModel.swift; sourceTree = "<group>"; };
 		925420FE2A2B3CD100801571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		925420FF2A2B46A200801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -61,11 +65,13 @@
 		927EF4CD2A272D78002D3EA7 /* SetUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMeetingView.swift; sourceTree = "<group>"; };
 		928185DC2A28988D006E962E /* MeetingConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingConfirmationView.swift; sourceTree = "<group>"; };
 		92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTTest.swift; sourceTree = "<group>"; };
+		92DB42C92A3377C500D02876 /* TranscriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptModel.swift; sourceTree = "<group>"; };
+		92DB42CB2A34D6D800D02876 /* TranscriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptManager.swift; sourceTree = "<group>"; };
+		92DB42CD2A371B1800D02876 /* SingleMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMeetingView.swift; sourceTree = "<group>"; };
 		92DBD3502A273FC90046D68E /* MeetingHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHistoryView.swift; sourceTree = "<group>"; };
 		92DBD3522A273FD70046D68E /* MeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewModel.swift; sourceTree = "<group>"; };
 		92DBD3542A2743740046D68E /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
 		92DBD3562A2745800046D68E /* SingleEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEmployeeView.swift; sourceTree = "<group>"; };
-		92DBD3582A274AA00046D68E /* MeetingHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHistoryViewModel.swift; sourceTree = "<group>"; };
 		92DBD35D2A274B920046D68E /* OpenAIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIViewModel.swift; sourceTree = "<group>"; };
 		92DBD3602A2879890046D68E /* DigitalClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalClockView.swift; sourceTree = "<group>"; };
 		92DBD3622A2879C60046D68E /* AnalogClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogClockView.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				92DBD3542A2743740046D68E /* MeetingModel.swift */,
 				92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */,
 				92DF7E192A2F03C100D532CE /* AttendeeModel.swift */,
+				92DB42C92A3377C500D02876 /* TranscriptModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,8 +156,8 @@
 				927EF4BF2A27293B002D3EA7 /* EmployeesViewModel.swift */,
 				927EF4C72A272B73002D3EA7 /* EmployeeEntryViewModel.swift */,
 				92DBD3522A273FD70046D68E /* MeetingViewModel.swift */,
-				92DBD3582A274AA00046D68E /* MeetingHistoryViewModel.swift */,
 				92DBD35D2A274B920046D68E /* OpenAIViewModel.swift */,
+				92DB42CB2A34D6D800D02876 /* TranscriptManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 				92D031CC2A2B220400F9CDBA /* ChatGPTTest.swift */,
 				92DF7E172A2F011D00D532CE /* MeetingView.swift */,
 				92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */,
+				92DB42CD2A371B1800D02876 /* SingleMeetingView.swift */,
+				92287C3D2A371CA500AB318A /* SingleMeetingDetailedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DBD3572A2745800046D68E /* SingleEmployeeView.swift in Sources */,
+				92DB42CA2A3377C500D02876 /* TranscriptModel.swift in Sources */,
 				927EF4CA2A272D3F002D3EA7 /* HomeView.swift in Sources */,
 				92DBD3672A287A240046D68E /* ClockUtils.swift in Sources */,
 				927EF4C42A272AD7002D3EA7 /* EmployeeModel.swift in Sources */,
@@ -287,7 +297,6 @@
 				92DBD3512A273FC90046D68E /* MeetingHistoryView.swift in Sources */,
 				92DBD3722A2894BF0046D68E /* SelectSingleEmployeeView.swift in Sources */,
 				927EF4CE2A272D78002D3EA7 /* SetUpMeetingView.swift in Sources */,
-				92DBD3592A274AA00046D68E /* MeetingHistoryViewModel.swift in Sources */,
 				927EF4BE2A2728F6002D3EA7 /* EmployeesContainer.xcdatamodeld in Sources */,
 				92DBD35E2A274B920046D68E /* OpenAIViewModel.swift in Sources */,
 				928185DD2A28988D006E962E /* MeetingConfirmationView.swift in Sources */,
@@ -305,6 +314,9 @@
 				92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */,
 				92DBD3612A2879890046D68E /* DigitalClockView.swift in Sources */,
 				92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */,
+				92DB42CC2A34D6D800D02876 /* TranscriptManager.swift in Sources */,
+				92287C3E2A371CA500AB318A /* SingleMeetingDetailedView.swift in Sources */,
+				92DB42CE2A371B1800D02876 /* SingleMeetingView.swift in Sources */,
 				924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */,
 				92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */,
 			);

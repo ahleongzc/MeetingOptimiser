@@ -33,7 +33,7 @@ struct HomeView: View {
                         Label("Employees", systemImage: "person.3.fill")
                     }
                 
-                MeetingHistoryView()
+                MeetingHistoryView(meetingVM: meetingVm)
                     .tabItem {
                         Label("History", systemImage: "internaldrive.fill")
                     }

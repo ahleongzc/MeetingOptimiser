@@ -25,6 +25,7 @@ class MeetingViewModel: ObservableObject {
     @Published var invalidMeeting: Bool = true
     @Published var currentSpeaker: EmployeeModel? = nil
     @Published var secondsElapsed = 0
+    @Published var history: [MeetingModel] = []
     
     private weak var timer: Timer?
     private var frequency: TimeInterval { 1.0 / 60.0 }
@@ -40,13 +41,10 @@ class MeetingViewModel: ObservableObject {
         currentSpeaker = meeting?.attendees.first ?? .example
     }
     
-    func saveMeeting() {
-        print("Saving meeting")
-    }
-    
-    func endMeeting() {
+    func endMeeting(transcripts: [TranscriptModel]) {
         timer?.invalidate()
-        saveMeeting()
+        meeting = meeting?.updateMeeting(transcripts)
+        history.append(meeting ?? .example)
         withAnimation {
             meeting = nil
         }
@@ -60,10 +58,9 @@ class MeetingViewModel: ObservableObject {
         }
     }
     
-    
     init() {
-//        topic = "Testing"
-//        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
+        topic = "Testing"
+        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
     }
     
     func createMeeting(employees: [EmployeeModel]) {

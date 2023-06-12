@@ -8,15 +8,29 @@
 import SwiftUI
 
 struct MeetingHistoryView: View {
+    
+    @ObservedObject var meetingVM: MeetingViewModel
+    
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack {
+                List {
+                    ForEach(meetingVM.history) { meeting in
+                        NavigationLink {
+                            SingleMeetingDetailedView(meeting: meeting)
+                        } label: {
+                            SingleMeetingView(meeting: meeting)
+                        }
+                    }
+                }
+            }
+            .navigationTitle(Text("Meeting History"))
         }
     }
 }
 
 struct MeetingHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingHistoryView()
+        MeetingHistoryView(meetingVM: MeetingViewModel())
     }
 }

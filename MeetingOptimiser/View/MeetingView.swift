@@ -11,9 +11,11 @@ import AVFoundation
 struct MeetingView: View {
     
     @StateObject var speechRecVM = SpeechRecognizerViewModel()
+    @StateObject var transcriptMGR = TranscriptManager()
+    
     @ObservedObject var meetingVM: MeetingViewModel
     @State var endMeetingConfirmation: Bool = false
-    @State var transcripts = [String]()
+    @State var currSpeakerDate: Date = Date()
     
     var body: some View {
         VStack {
@@ -43,8 +45,8 @@ struct MeetingView: View {
                 }
                 
                 Section {
-                    ForEach(transcripts, id: \.self) { transcript in
-                        Text(transcript)
+                    ForEach(transcriptMGR.transcripts) { transcriptModel in
+                        Text(transcriptModel.transcript)
                     }
                 }
             }
@@ -72,11 +74,11 @@ struct MeetingView: View {
     }
     
     func endMeeting() {
-        speechRecVM.saveTranscript { transcript in
-            transcripts.append(transcript)
+        speechRecVM.returnTranscript { transcript in
+            saveTranscript(transcript)
         }
         speechRecVM.stopTranscribing()
-        meetingVM.endMeeting()
+        meetingVM.endMeeting(transcripts: transcriptMGR.transcripts)
     }
     
     func isMainSpeaker(_ curr: EmployeeModel) -> Bool {
@@ -84,10 +86,15 @@ struct MeetingView: View {
     }
     
     func changeSpeaker(_ attendee: EmployeeModel) {
-        meetingVM.changeSpeaker(attendee)
-        speechRecVM.saveTranscript { transcript in
-            transcripts.append(transcript)
+        speechRecVM.returnTranscript { transcript in
+            saveTranscript(transcript)
         }
+        meetingVM.changeSpeaker(attendee)
+    }
+    
+    func saveTranscript(_ transcript: String) {
+        let newTranscriptModel = TranscriptModel(transcript: transcript, speaker: meetingVM.currentSpeaker ?? .example, duration: 10, startTime: currSpeakerDate)
+        transcriptMGR.addTranscript(newTranscriptModel)
     }
 }
 
