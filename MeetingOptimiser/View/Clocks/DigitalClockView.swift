@@ -34,6 +34,10 @@ struct DigitalClockView: View {
             second = calendar.component(.second, from: currentDate)
         }
     }
+    
+    func restart() {
+        currentDate = Date()
+    }
 }
 
 struct DigitalClockView_Previews: PreviewProvider {

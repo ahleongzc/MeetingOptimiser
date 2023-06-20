@@ -113,6 +113,6 @@ class EmployeesViewModel: ObservableObject {
     func saveData() {
         manager.save()
         getEmployees()
+        reset()
     }
-    
 }

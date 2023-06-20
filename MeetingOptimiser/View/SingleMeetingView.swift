@@ -13,8 +13,15 @@ struct SingleMeetingView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(meeting.startDate?.formatted(date: .numeric, time: .shortened) ?? "")
             Text(meeting.topic)
+                .font(.title3)
+                .bold()
+            
+            HStack {
+                Text("Held: ")
+                Text(meeting.startDate?.formatted(date: .numeric, time: .omitted) ?? "31/12/2022")
+                Text(meeting.startDate?.formatted(date: .omitted, time: .shortened) ?? "12:00 PM")
+            }
             Text("Attendee count: \(meeting.attendees.count)")
         }
     }

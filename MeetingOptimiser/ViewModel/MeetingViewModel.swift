@@ -43,7 +43,7 @@ class MeetingViewModel: ObservableObject {
     
     func endMeeting(transcripts: [TranscriptModel]) {
         timer?.invalidate()
-        meeting = meeting?.updateMeeting(transcripts)
+        meeting = meeting?.updateMeeting(transcripts, startDate: startDate ?? Date())
         history.append(meeting ?? .example)
         withAnimation {
             meeting = nil
@@ -59,8 +59,8 @@ class MeetingViewModel: ObservableObject {
     }
     
     init() {
-        topic = "Testing"
-        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
+//        topic = "Testing"
+//        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
     }
     
     func createMeeting(employees: [EmployeeModel]) {

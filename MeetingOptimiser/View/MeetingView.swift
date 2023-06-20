@@ -12,6 +12,7 @@ struct MeetingView: View {
     
     @StateObject var speechRecVM = SpeechRecognizerViewModel()
     @StateObject var transcriptMGR = TranscriptManager()
+    @EnvironmentObject var empVM: EmployeesViewModel
     
     @ObservedObject var meetingVM: MeetingViewModel
     @State var endMeetingConfirmation: Bool = false
@@ -21,7 +22,6 @@ struct MeetingView: View {
         VStack {
             
             Text("Second elapsed: \(meetingVM.secondsElapsed)")
-            Text("Transcript: \(speechRecVM.transcript)")
             
             List {
                 Section {
@@ -43,13 +43,16 @@ struct MeetingView: View {
                         }
                     }
                 }
-                
-                Section {
-                    ForEach(transcriptMGR.transcripts) { transcriptModel in
-                        Text(transcriptModel.transcript)
-                    }
-                }
             }
+            
+            HStack {
+                Text("Current speaker: ")
+                Text(meetingVM.currentSpeaker?.name ?? "")
+            }
+            
+            Text(speechRecVM.transcript)
+            
+            Spacer()
             
             Button {
                 endMeetingConfirmation.toggle()
@@ -79,6 +82,8 @@ struct MeetingView: View {
         }
         speechRecVM.stopTranscribing()
         meetingVM.endMeeting(transcripts: transcriptMGR.transcripts)
+        meetingVM.reset()
+        empVM.reset()
     }
     
     func isMainSpeaker(_ curr: EmployeeModel) -> Bool {
@@ -101,5 +106,6 @@ struct MeetingView: View {
 struct MeetingView_Previews: PreviewProvider {
     static var previews: some View {
         MeetingView(meetingVM: MeetingViewModel())
+            .environmentObject(EmployeesViewModel())
     }
 }

@@ -20,7 +20,6 @@ struct HomeView: View {
                         removal: .move(edge: .bottom).animation(.easeIn)
                     )
                 )
-
         } else {
             TabView {
                 SetUpMeetingView(meetingVm: meetingVm)
