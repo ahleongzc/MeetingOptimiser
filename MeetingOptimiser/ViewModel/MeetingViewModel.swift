@@ -6,26 +6,23 @@
 //
 
 import Foundation
+import CoreData
 import SwiftUI
 
 @MainActor
 class MeetingViewModel: ObservableObject {
     
-    // let attendees: [Employee]
+    let manager = CoreDataManager.instance
+    
     @Published var topic: String = ""
-    //    let summary: String
-    @Published var summaryLength: summaryLengthEnum = .threeHundred
-    
-    //let transcript: String
-    //    let startDate: Date
-    //    let endDate: Date?
-    //    let duration: Int16
-    
     @Published var meeting: MeetingModel? = nil
     @Published var invalidMeeting: Bool = true
     @Published var currentSpeaker: EmployeeModel? = nil
     @Published var secondsElapsed = 0
-    @Published var history: [MeetingModel] = []
+    @Published var history: [Meeting] = []
+    @Published var meetings: [MeetingModel] = []
+    
+    var employees: [Employee] = []
     
     private weak var timer: Timer?
     private var frequency: TimeInterval { 1.0 / 60.0 }
@@ -41,10 +38,65 @@ class MeetingViewModel: ObservableObject {
         currentSpeaker = meeting?.attendees.first ?? .example
     }
     
+    func findEmployee(employee: EmployeeModel) -> Employee? {
+        for emp in employees {
+            if let id = emp.id {
+                if id == employee.id {
+                    return emp
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func addMeeting(meeting: MeetingModel) {
+        let newMeeting = Meeting(context: manager.context)
+        
+        var tempTranscripts = [Transcript]()
+        
+        for transcript in meeting.transcripts ?? [] {
+            let newTranscript = Transcript(context: manager.context)
+            newTranscript.id = transcript.id
+            newTranscript.employee = findEmployee(employee: transcript.speaker)
+            newTranscript.duration = Int16(transcript.duration)
+            newTranscript.startTime = transcript.startTime
+            newTranscript.transcript = transcript.transcript
+            tempTranscripts.append(newTranscript)
+        }
+        
+        
+        newMeeting.transcript = NSSet(array: tempTranscripts)
+        
+        var tempEmployees = [Employee]()
+        
+        for attendee in meeting.attendees {
+            if let emp = findEmployee(employee: attendee) {
+                tempEmployees.append(emp)
+            }
+        }
+        
+        newMeeting.employee = NSSet(array: tempEmployees)
+        newMeeting.id = meeting.id
+        newMeeting.topic = meeting.topic
+        newMeeting.summary = meeting.summary
+        newMeeting.startDate = meeting.startDate
+        newMeeting.endDate = meeting.endDate
+        newMeeting.duration = meeting.duration
+        
+        saveData()
+    }
+    
+    func saveData() {
+        manager.save()
+        getMeetings()
+    }
+    
     func endMeeting(transcripts: [TranscriptModel]) {
         timer?.invalidate()
         meeting = meeting?.updateMeeting(transcripts, startDate: startDate ?? Date())
-        history.append(meeting ?? .example)
+        addMeeting(meeting: meeting ?? MeetingModel.example)
+        
         withAnimation {
             meeting = nil
         }
@@ -59,13 +111,15 @@ class MeetingViewModel: ObservableObject {
     }
     
     init() {
+        getEmployees()
+        getMeetings()
 //        topic = "Testing"
 //        createMeeting(employees: [.example, .example2, .example3, .example4, .example5, .example6])
     }
     
     func createMeeting(employees: [EmployeeModel]) {
         withAnimation {
-            meeting = MeetingModel(attendees: employees, topic: topic, summaryLength: summaryLength)
+            meeting = MeetingModel(attendees: employees, topic: topic)
             currentSpeaker = meeting?.attendees.first
         }
     }
@@ -78,7 +132,6 @@ class MeetingViewModel: ObservableObject {
         withAnimation {
             topic = ""
             meeting = nil
-            summaryLength = .threeHundred
         }
     }
  
@@ -93,5 +146,34 @@ class MeetingViewModel: ObservableObject {
         if curr.id == speaker.id { return }
         currentSpeaker = speaker
     }
+
+    func getMeetings() {
+        let request = NSFetchRequest<Meeting>(entityName: "Meeting")
+        let sort = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sort]
+        
+        do {
+            history = try manager.context.fetch(request)
+            meetings = []
+            for meeting in history {
+                meetings.append(MeetingModel(meeting: meeting))
+            }
+        } catch let error {
+            print("Error fetching. \(error.localizedDescription)")
+        }
+    }
+    
+    func getEmployees() {
+        let request = NSFetchRequest<Employee>(entityName: "Employee")
+        let sort = NSSortDescriptor(key: "id", ascending: true)
+        request.sortDescriptors = [sort]
+        
+        do {
+            employees = try manager.context.fetch(request)
+        } catch let error {
+            print("Error fetching. \(error.localizedDescription)")
+        }
+    }
+    
 
 }

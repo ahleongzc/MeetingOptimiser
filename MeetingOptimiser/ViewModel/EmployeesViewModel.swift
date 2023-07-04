@@ -37,6 +37,7 @@ class EmployeesViewModel: ObservableObject {
         }
     }
     
+    
     func getEmployees() {
         let request = NSFetchRequest<Employee>(entityName: "Employee")
         let sort = NSSortDescriptor(key: "id", ascending: true)

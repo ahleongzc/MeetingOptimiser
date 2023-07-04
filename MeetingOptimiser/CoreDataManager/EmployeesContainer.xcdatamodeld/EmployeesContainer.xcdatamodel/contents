@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="position" optional="YES" attributeType="String"/>
         <relationship name="meeting" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meeting" inverseName="employee" inverseEntity="Meeting"/>
+        <relationship name="transcript" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transcript" inverseName="employee" inverseEntity="Transcript"/>
     </entity>
     <entity name="Meeting" representedClassName="Meeting" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -13,9 +14,16 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
-        <attribute name="summaryLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="topic" optional="YES" attributeType="String"/>
-        <attribute name="transcript" optional="YES" attributeType="String"/>
         <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="meeting" inverseEntity="Employee"/>
+        <relationship name="transcript" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transcript" inverseName="meeting" inverseEntity="Transcript"/>
+    </entity>
+    <entity name="Transcript" representedClassName="Transcript" syncable="YES" codeGenerationType="class">
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="transcript" optional="YES" attributeType="String"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="transcript" inverseEntity="Employee"/>
+        <relationship name="meeting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meeting" inverseName="transcript" inverseEntity="Meeting"/>
     </entity>
 </model>

@@ -15,7 +15,7 @@ struct MeetingHistoryView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(meetingVM.history) { meeting in
+                    ForEach(meetingVM.meetings) { meeting in
                         NavigationLink {
                             SingleMeetingDetailedView(meeting: meeting)
                         } label: {

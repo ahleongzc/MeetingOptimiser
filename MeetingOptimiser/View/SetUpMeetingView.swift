@@ -39,18 +39,6 @@ struct SetUpMeetingView: View {
                     }
                     
                     Section {
-                        Picker("Position", selection: $meetingVm.summaryLength) {
-                            ForEach(summaryLengthEnum.allCases, id: \.id) { length in
-                                Text("\(length.rawValue)")
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .padding()
-                    } header: {
-                        Text("Summary length (words)")
-                    }
-                    
-                    Section {
                         if empVM.selectedEmployees.isEmpty {
                             Text("There must be at least one attendee")
                                 .foregroundColor(.secondary.opacity(0.5))

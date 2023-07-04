@@ -40,7 +40,6 @@
 		92DBD36F2A2884D10046D68E /* SelectionEmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */; };
 		92DBD3722A2894BF0046D68E /* SelectSingleEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DBD3712A2894BF0046D68E /* SelectSingleEmployeeView.swift */; };
 		92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E172A2F011D00D532CE /* MeetingView.swift */; };
-		92DF7E1A2A2F03C100D532CE /* AttendeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E192A2F03C100D532CE /* AttendeeModel.swift */; };
 		92DF7E1C2A2F0E3500D532CE /* SpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +79,6 @@
 		92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionEmployeeModel.swift; sourceTree = "<group>"; };
 		92DBD3712A2894BF0046D68E /* SelectSingleEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSingleEmployeeView.swift; sourceTree = "<group>"; };
 		92DF7E172A2F011D00D532CE /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
-		92DF7E192A2F03C100D532CE /* AttendeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeModel.swift; sourceTree = "<group>"; };
 		92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +141,6 @@
 				927EF4C32A272AD7002D3EA7 /* EmployeeModel.swift */,
 				92DBD3542A2743740046D68E /* MeetingModel.swift */,
 				92DBD36E2A2884D10046D68E /* SelectionEmployeeModel.swift */,
-				92DF7E192A2F03C100D532CE /* AttendeeModel.swift */,
 				92DB42C92A3377C500D02876 /* TranscriptModel.swift */,
 			);
 			path = Model;
@@ -304,7 +301,6 @@
 				927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */,
 				927EF4CC2A272D4E002D3EA7 /* AllEmployeesView.swift in Sources */,
 				927EF4C82A272B73002D3EA7 /* EmployeeEntryViewModel.swift in Sources */,
-				92DF7E1A2A2F03C100D532CE /* AttendeeModel.swift in Sources */,
 				92DBD3632A2879C60046D68E /* AnalogClockView.swift in Sources */,
 				92DBD3532A273FD70046D68E /* MeetingViewModel.swift in Sources */,
 				927EF4C02A27293B002D3EA7 /* EmployeesViewModel.swift in Sources */,

@@ -29,17 +29,6 @@ struct MeetingConfirmationView: View {
                 }
                 .padding()
                 
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Summary length :")
-                            .font(.title3)
-                            .bold()
-                        Text("\(meeting.summaryLength.rawValue) words")
-                            .padding(.top, 1)
-                    }
-                    Spacer()
-                }
-                .padding()
                 
                 HStack {
                     Text("Attendees:")
