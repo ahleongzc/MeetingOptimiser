@@ -99,6 +99,7 @@ struct MeetingView: View {
     
     func saveTranscript(_ transcript: String) {
         let newTranscriptModel = TranscriptModel(transcript: transcript, speaker: meetingVM.currentSpeaker ?? .example, duration: 10, startTime: currSpeakerDate)
+        currSpeakerDate = Date()
         transcriptMGR.addTranscript(newTranscriptModel)
     }
 }

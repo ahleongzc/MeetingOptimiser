@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		92287C3E2A371CA500AB318A /* SingleMeetingDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92287C3D2A371CA500AB318A /* SingleMeetingDetailedView.swift */; };
 		924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */; };
+		925C9EFE2A556ADA00927E97 /* SingleTranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C9EFD2A556ADA00927E97 /* SingleTranscriptView.swift */; };
 		927EF4A92A272712002D3EA7 /* MeetingOptimiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */; };
 		927EF4AB2A272712002D3EA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927EF4AA2A272712002D3EA7 /* ContentView.swift */; };
 		927EF4AD2A272713002D3EA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927EF4AC2A272713002D3EA7 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		924522A52A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizerViewModel.swift; sourceTree = "<group>"; };
 		925420FE2A2B3CD100801571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		925420FF2A2B46A200801571 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		925C9EFD2A556ADA00927E97 /* SingleTranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTranscriptView.swift; sourceTree = "<group>"; };
 		927EF4A52A272712002D3EA7 /* MeetingOptimiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingOptimiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927EF4A82A272712002D3EA7 /* MeetingOptimiserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingOptimiserApp.swift; sourceTree = "<group>"; };
 		927EF4AA2A272712002D3EA7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				92DF7E1B2A2F0E3500D532CE /* SpeakerView.swift */,
 				92DB42CD2A371B1800D02876 /* SingleMeetingView.swift */,
 				92287C3D2A371CA500AB318A /* SingleMeetingDetailedView.swift */,
+				925C9EFD2A556ADA00927E97 /* SingleTranscriptView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				92D031CD2A2B220400F9CDBA /* ChatGPTTest.swift in Sources */,
 				92DB42CC2A34D6D800D02876 /* TranscriptManager.swift in Sources */,
 				92287C3E2A371CA500AB318A /* SingleMeetingDetailedView.swift in Sources */,
+				925C9EFE2A556ADA00927E97 /* SingleTranscriptView.swift in Sources */,
 				92DB42CE2A371B1800D02876 /* SingleMeetingView.swift in Sources */,
 				924522A62A2F1DB500CD2B50 /* SpeechRecognizerViewModel.swift in Sources */,
 				92DF7E182A2F011D00D532CE /* MeetingView.swift in Sources */,

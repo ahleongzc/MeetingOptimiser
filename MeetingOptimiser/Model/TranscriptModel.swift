@@ -37,5 +37,6 @@ struct TranscriptModel: Identifiable {
         self.startTime = transcript.startTime ?? Date()
     }
     
-    static let example = TranscriptModel(transcript: "This is an example transcript", speaker: .example, duration: 10, startTime: Date())
+    static let example = TranscriptModel(transcript: "This is an example transcript by speaker 1", speaker: .example, duration: 10, startTime: Date())
+    static let example2 = TranscriptModel(transcript: "This is the second example transcript by speaker 2", speaker: .example2, duration: 10, startTime: Date())
 }

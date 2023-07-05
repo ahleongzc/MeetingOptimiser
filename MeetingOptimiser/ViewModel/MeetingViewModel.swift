@@ -82,7 +82,7 @@ class MeetingViewModel: ObservableObject {
         newMeeting.summary = meeting.summary
         newMeeting.startDate = meeting.startDate
         newMeeting.endDate = meeting.endDate
-        newMeeting.duration = meeting.duration
+        newMeeting.duration = Int16(meeting.duration)
         
         saveData()
     }
@@ -149,7 +149,7 @@ class MeetingViewModel: ObservableObject {
 
     func getMeetings() {
         let request = NSFetchRequest<Meeting>(entityName: "Meeting")
-        let sort = NSSortDescriptor(key: "id", ascending: true)
+        let sort = NSSortDescriptor(key: "startDate", ascending: false)
         request.sortDescriptors = [sort]
         
         do {

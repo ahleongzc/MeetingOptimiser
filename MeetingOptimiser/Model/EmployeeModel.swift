@@ -33,7 +33,7 @@ struct EmployeeModel: Identifiable, Hashable, Equatable {
     }
     
     static let example = EmployeeModel(id: "11111", email: "leong@gmail.com", name: "Leong Zhe Cheng", position: .CEO)
-    static let example2 = EmployeeModel(id: "22222", email: "email2", name: "two", position: .SE)
+    static let example2 = EmployeeModel(id: "22222", email: "email2", name: "Ng Pin Jie", position: .SE)
     static let example3 = EmployeeModel(id: "33333", email: "email3", name: "three", position: .E)
     static let example4 = EmployeeModel(id: "44444", email: "email4", name: "four", position: .SE)
     static let example5 = EmployeeModel(id: "55555", email: "email5", name: "five", position: .SE)
