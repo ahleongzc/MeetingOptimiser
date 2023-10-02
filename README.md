@@ -1,3 +1,3 @@
 # MeetingOptimiser
 
-This is a project that aims to use OpenAI to summarise a meeting's transcript
+This is a project that uses SFSpeechRecogniser to transcibe spoken contributions during a meeting
